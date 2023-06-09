@@ -4,15 +4,19 @@ import matplotlib.pyplot as pyplot
 
 file = 'csv.txt'
 
-with open(file) as f:
-    reader = csv.reader(f)
+try:
+    with open(file) as f:
+        reader = csv.reader(f)
 
-    prices, times = [], []
-    for col in reader:
-        time = datetime.strptime(col[1], '%H:%M:%S')
-        price = float(col[0])
-        times.append(time)
-        prices.append(price)
+        prices, times = [], []
+        for col in reader:
+            time = datetime.strptime(col[1], '%H:%M:%S')
+            price = float(col[0])
+            times.append(time)
+            prices.append(price)
+
+except Exception as e:
+    print(e)
 
 pyplot.style.use('ggplot')
 fig, ax = pyplot.subplots()
