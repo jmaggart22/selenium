@@ -13,9 +13,12 @@ def get_time():
     return hms
 
 def csv(price):
-    with open(file, 'a') as f:
-        time = get_time()
-        f.write(price+","+time+"\n")
+    try:
+        with open(file, 'a') as f:
+            time = get_time()
+            f.write(price+","+time+"\n")
+    except Exception as e:
+        print(e)
 
 while True:
     csv(p.get_price())
