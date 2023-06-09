@@ -7,7 +7,7 @@ class Browse:
     
     def __init__(self, symbol):
         self.symbol = symbol
-        pass
+        
 
     def get_price(self):
         
